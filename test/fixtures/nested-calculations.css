@@ -4,5 +4,5 @@ body {
 }
 
 .test {
-  padding: vr(calc(5 * 5)) rem;
+  padding: vr(calc(5 * 5))rem;
 }
