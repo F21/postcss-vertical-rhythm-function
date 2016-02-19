@@ -1,11 +1,6 @@
 var postcss = require('postcss');
 var reduceFunctionCall = require('reduce-function-call');
 
-function parseValue(value) {
-    var number = /vr\(([^)]+)\)/.exec(value)[1] || 0;
-    return parseFloat(number);
-}
-
 module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (opts) {
     opts = opts || {};
 
@@ -56,7 +51,7 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
             }
 
             decl.value = reduceFunctionCall(decl.value, 'vr', function (body) {
-                return lineHeight * body;
+                return lineHeight * parseInt(body, 10);
             });
         });
     };
