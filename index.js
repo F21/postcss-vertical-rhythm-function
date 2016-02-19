@@ -49,11 +49,6 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
             }
         });
 
-        if (lineHeight === null) {
-            throw css.error('Unable to determine the line-height from the' +
-                ' stylesheet.');
-        }
-
         /**
          * Replace any CSS values using the function with numbers resulting
          * from the calculation.
