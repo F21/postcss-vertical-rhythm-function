@@ -25,10 +25,21 @@
     "mocha": "^2.4.5"
   },
   "scripts": {
+    "eslint": "eslint *.js",
     "mocha": "mocha",
     "test": "mocha && eslint *.js"
   },
   "eslintConfig": {
-    "extends": "eslint-config-postcss/es5"
+    "extends": "eslint-config-postcss/es5",
+    "rules": {
+      "max-len": [
+        2,
+        120,
+        4,
+        {
+          "ignoreUrls": true
+        }
+      ]
+    }
   }
 }

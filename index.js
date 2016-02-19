@@ -10,7 +10,7 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
 
     var rootSelector = opts.rootSelector || 'body';
 
-    return function (css, result) {
+    return function (css) {
 
         var lineHeight = null;
 
@@ -22,7 +22,9 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
                 if (decl.prop === 'font') {
 
                     // Matches {$1:font-size}{$2:unit}/{$3:line-height}.
-                    var fontProps = decl.value.match(/(\d+|\d+?\.\d+)(r?em|px|%)(?:\s*\/\s*)(\d+|\d+?\.\d+)\s+/);
+                    var rule = /(\d+|\d+?\.\d+)(r?em|px|%)(?:\s*\/\s*)(\d+|\d+?\.\d+)\s+/;
+
+                    var fontProps = decl.value.match(rule);
 
                     // Make sure font delcaration is valid.
                     if (!fontProps) {
@@ -41,21 +43,22 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
                         throw decl.error('Line-height declaration is invalid.');
                     }
 
-                    lineHeight = lhProps[1]
+                    lineHeight = lhProps[1];
 
                 }
             }
         });
 
         if (lineHeight === null) {
-            throw css.error("Unable to determine the line-height from the stylesheet.");
+            throw css.error('Unable to determine the line-height from the' +
+                ' stylesheet.');
         }
 
         /**
-         * Replace any CSS values using the special unit with numbers resulting from
-         * the modular scale instance.
+         * Replace any CSS values using the function with numbers resulting
+         * from the calculation.
          */
-        css.replaceValues(/vr\(\d+\)/g, {fast: 'vr('}, function (string) {
+        css.replaceValues(/vr\(\d+\)/g, { fast: 'vr(' }, function (string) {
             return lineHeight * parseValue(string);
         });
     };
