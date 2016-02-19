@@ -1,3 +1,7 @@
+0.2.4
+-----------
+Fixed regex for value replacement.
+
 0.2.3
 -----------
 Fixed test

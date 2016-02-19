@@ -53,7 +53,7 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
          * Replace any CSS values using the function with numbers resulting
          * from the calculation.
          */
-        css.replaceValues(/vr\(\d+\)/g, { fast: 'vr(' }, function (string) {
+        css.replaceValues(/vr\([\d\.]*\)/g, { fast: 'vr(' }, function (string) {
             return lineHeight * parseValue(string);
         });
     };

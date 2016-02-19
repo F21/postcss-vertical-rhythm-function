@@ -46,4 +46,8 @@ describe('postcss-vertical-rhythm-function', function() {
     it('handles fraction line heights', function (done) {
         test('fractional-line-height', {}, done);
     });
+
+    it('handles fraction vertical rhythms', function (done) {
+        test('fractional-vertical-rhythm', {}, done);
+    });
 });
