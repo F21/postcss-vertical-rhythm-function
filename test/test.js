@@ -43,4 +43,7 @@ describe('postcss-vertical-rhythm-function', function() {
         test('multiple-selectors', {}, done);
     });
 
+    it('handles fraction line heights', function (done) {
+        test('fractional-line-height', {}, done);
+    });
 });

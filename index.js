@@ -36,7 +36,7 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
                 } else if (decl.prop === 'line-height') {
 
                     // Matches {$1:line-height}.
-                    var lhProps = decl.value.match(/(^[0-9]*$)/);
+                    var lhProps = decl.value.match(/(^[0-9\.]*$)/);
 
                     // Make sure line-height delcaration is valid.
                     if (!lhProps) {
