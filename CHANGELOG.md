@@ -1,3 +1,8 @@
+0.3.0
+-----------
+Switch to using `reduce-function-call` to support nested functions and multiple `vr()`s being
+used in a property.
+
 0.2.4
 -----------
 Fixed regex for value replacement.

@@ -4,7 +4,8 @@ var postcss = require('postcss'),
     expect = require('chai').expect,
     fs = require('fs'),
     path = require('path'),
-    plugin = require('../');
+    plugin = require('../'),
+    calc = require('postcss-calc');
 
 var test = function (fixture, opts, done) {
     var input = fixture + '.css',
@@ -13,7 +14,7 @@ var test = function (fixture, opts, done) {
     input = fs.readFileSync(path.join(__dirname, 'fixtures', input), 'utf8');
     expected = fs.readFileSync(path.join(__dirname, 'fixtures', expected), 'utf8');
 
-    postcss([ plugin(opts) ])
+    postcss([calc, plugin(opts)])
         .process(input)
         .then(function (result) {
             expect(result.css).to.eql(expected);
@@ -49,5 +50,9 @@ describe('postcss-vertical-rhythm-function', function() {
 
     it('handles fraction vertical rhythms', function (done) {
         test('fractional-vertical-rhythm', {}, done);
+    });
+
+    it('value can contain calculated values or functions', function (done) {
+        test('nested-calculations', {}, done);
     });
 });

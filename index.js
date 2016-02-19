@@ -1,4 +1,5 @@
 var postcss = require('postcss');
+var reduceFunctionCall = require('reduce-function-call');
 
 function parseValue(value) {
     var number = /vr\(([^)]+)\)/.exec(value)[1] || 0;
@@ -49,12 +50,14 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
             }
         });
 
-        /**
-         * Replace any CSS values using the function with numbers resulting
-         * from the calculation.
-         */
-        css.replaceValues(/vr\([\d\.]*\)/g, { fast: 'vr(' }, function (string) {
-            return lineHeight * parseValue(string);
+        css.walkDecls(function (decl) {
+            if (!decl.value || decl.value.indexOf('vr(') === -1) {
+                return;
+            }
+
+            decl.value = reduceFunctionCall(decl.value, 'vr', function (body) {
+                return lineHeight * body;
+            });
         });
     };
 });

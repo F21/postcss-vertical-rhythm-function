@@ -16,13 +16,17 @@
   },
   "homepage": "https://github.com/F21/postcss-vertical-rhythm-function",
   "dependencies": {
-    "postcss": "^5.0.14"
+    "install": "^0.4.4",
+    "npm": "^3.7.3",
+    "postcss": "^5.0.14",
+    "reduce-function-call": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^1.10.3",
     "eslint-config-postcss": "^1.0.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "postcss-calc": "^5.2.0"
   },
   "scripts": {
     "eslint": "eslint *.js",
