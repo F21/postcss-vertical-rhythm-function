@@ -1,3 +1,7 @@
+0.3.2
+-----------
+Fixed failing tests.
+
 0.3.1
 -----------
 Fixed bug where `parseInt()` was used instead of `parseFloat()`.
