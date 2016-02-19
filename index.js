@@ -51,7 +51,7 @@ module.exports = postcss.plugin('postcss-vertical-rhythm-function', function (op
             }
 
             decl.value = reduceFunctionCall(decl.value, 'vr', function (body) {
-                return lineHeight * parseInt(body, 10);
+                return lineHeight * parseFloat(body);
             });
         });
     };
