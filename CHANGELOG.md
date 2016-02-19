@@ -1,3 +1,7 @@
+0.2.2
+-----------
+Fixed test
+
 0.2.1
 -----------
 Fixed issue where line-height is not parsed if it is fractional.
