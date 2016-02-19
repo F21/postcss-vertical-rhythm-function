@@ -5,7 +5,7 @@
 How is this different from [postcss-vertical-rhythm]?
  - This plugin allows you to use your own units (px, rem, em, etc). `vr()` is unitless.
  - You can use `line-height` or `font` to define your line-height.
- - This plugin works well in cases where the `font-size`` is unknown and cannot be used to compute an exact vertical rhythm during build time.
+ - This plugin works well in cases where the `font-size` is unknown and cannot be used to compute an exact vertical rhythm during build time.
    An example is the [postcss-responsive-type] plugin which generates rules to resize your type using the browser's width.
 
 [PostCSS]: https://github.com/postcss/postcss
