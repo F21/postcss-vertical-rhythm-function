@@ -1,6 +1,6 @@
 {
   "name": "postcss-vertical-rhythm-function",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PostCSS plugin to use vertical rhythm by providing a unit-agnostic vr() function.",
   "keywords": [
     "postcss",
