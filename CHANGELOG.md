@@ -1,3 +1,7 @@
+0.3.1
+-----------
+Fixed bug where `parseInt()` was used instead of `parseFloat()`.
+
 0.3.0
 -----------
 Switch to using `reduce-function-call` to support nested functions and multiple `vr()`s being
