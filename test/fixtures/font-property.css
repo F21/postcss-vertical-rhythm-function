@@ -1,0 +1,7 @@
+body {
+  font: 100%/2 serif;
+}
+
+.test {
+  padding: vr(2)rem;
+}

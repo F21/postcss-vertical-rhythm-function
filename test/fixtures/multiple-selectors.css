@@ -1,0 +1,17 @@
+body {
+  font-size: 100%;
+  line-height: 2;
+}
+
+.test1 {
+  padding: vr(1)rem;
+}
+
+.test2 {
+  padding: vr(1)rem vr(2)rem vr(3)rem vr(4)rem;
+}
+
+.test3 {
+  padding: vr(1)rem;
+  margin: vr(1)rem vr(2)rem vr(3)rem vr(4)rem;
+}
